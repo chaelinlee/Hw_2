@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:id="@+id/activity_reservation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,4 +11,209 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.leechaelin.hw_2.Reservation">
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="레스토랑을 시작하려면 아래를 클릭하세요. "/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시작함 "
+            android:id="@+id/started"/>
+        <TextView
+            android:visibility="invisible"
+            android:layout_alignBaseline="@id/started"
+            android:layout_toRightOf="@id/started"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예약시작 경과시간 :"
+            android:id="@+id/textview"
+            android:textColor="#3841aa"/>
+
+        <Chronometer
+            android:visibility="invisible"
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3841aa"
+            android:layout_alignBaseline="@id/textview"
+            android:layout_toRightOf="@id/textview"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f8dedd"
+        android:id="@+id/whole">
+        <LinearLayout
+            android:padding="10dp"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="386dp"
+            android:orientation="vertical"
+            android:id="@+id/first"
+            android:weightSum="1">
+            <DatePicker
+                android:id="@+id/datepicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.40"></DatePicker>
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="386dp"
+            android:orientation="vertical"
+            android:id="@+id/second">
+        <TimePicker
+            android:id="@+id/timepicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.40"></TimePicker>
+
+        </LinearLayout>
+
+        <GridLayout
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:id="@+id/third"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="3"
+            android:columnCount="2">
+
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="성인" />
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="청소년"/>
+            <TextView
+                android:layout_columnWeight="1"
+                android:text="어린이"/>
+            <EditText
+                android:layout_columnWeight="1"
+                android:id="@+id/adult"/>
+            <EditText
+                android:layout_columnWeight="1"
+                android:id="@+id/teen"/>
+            <EditText
+                android:layout_columnWeight="1"
+                android:id="@+id/young"/>
+        </GridLayout>
+
+        <TableLayout
+            android:stretchColumns="*"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:id="@+id/last"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f8f4f4"
+            >
+            <TableRow>
+                <TextView
+                    android:layout_span="2"
+                    android:text="예약 결과는 다음과 같습니다"
+                    android:textColor="#3841aa"
+                    android:layout_gravity="center"
+                    android:textSize="25dp"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="날짜 "
+                    android:layout_weight="0.3"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="년 월 일"
+                    android:id="@+id/date"
+                    android:layout_weight="0.7"
+                    />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="시간"
+                    android:layout_columnWeight="0.3"
+                    />
+                <TextView
+                    android:text="시 분"
+                    android:id="@+id/time"
+                    android:layout_columnWeight="0.7"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="성인"
+                    android:layout_columnWeight="0.3"/>
+                <TextView
+                    android:text="명"
+                    android:id="@+id/adult_num"
+                    android:layout_columnWeight="0.7"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="청소년"
+                    android:layout_columnWeight="0.3"/>
+                <TextView
+                    android:text="명"
+                    android:id="@+id/teen_num"
+                    android:layout_columnWeight="0.7"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+
+                    android:text="어린이"
+                    android:layout_columnWeight="0.3"/>
+                <TextView
+                    android:text="명"
+                    android:id="@+id/child_num"
+                    android:layout_columnWeight="0.7"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:textSize="20dp"
+                    android:textColor="#d3b4b4"
+                    android:text="예약되었습니다"/>
+            </TableRow>
+        </TableLayout>
+
+    </FrameLayout>
+    <GridLayout
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        android:id="@+id/buttons"
+        android:rowCount="1"
+        android:columnCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:onClick ="OnMyClick"
+            android:layout_columnWeight="1"
+            android:text="이전"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/prev"/>
+        <Button
+            android:onClick ="OnMyClick"
+            android:layout_columnWeight="1"
+            android:text="다음"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next"/>
+
+    </GridLayout>
+</LinearLayout>
